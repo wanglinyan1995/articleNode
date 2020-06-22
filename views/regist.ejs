@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>注册</title>
+    </head>
+    <style>
+        .regist{
+            width: 500px;
+            height: 800px;
+            margin:0 auto;
+            margin-top:500px;
+        }
+        .regist input{
+            width: 100%;
+            margin-bottom: 20px;
+            height: 50px;
+            border: 1px solid gray;
+        }
+        .submit{
+            background:orange;
+            color:white;
+        }
+    </style>
+    <body>
+        <form action="/users/regist" method="post" class="regist">
+            注册页面<br>
+            <input type="text" name="name" value="" placeholder="账号">
+            <input type="password" name="password" value="" placeholder="密码">
+            <input type="password" name="password2" value="" placeholder="重复密码">
+            <input type="submit" value="注册" class="submit">
+            <div>已有账号，<a href="">登录</a></div>
+        </form>
+
+    </body>
+</html>
