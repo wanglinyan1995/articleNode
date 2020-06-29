@@ -4,8 +4,66 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+  <style>
+    html,body{
+      height: 100%;
+    }
+    .bar{
+      width: 100%;
+      height:80px;
+      line-height:80px;
+      background:#d2d6d8;
+    }
+    .leftRegion{
+      float: right;
+
+    }
+    .leftRegion a{
+      margin: 0 15px;
+    }
+    .list{
+      width: 70%;
+      height: 100%;
+      margin: 0 auto;
+
+    }
+    .row{
+      height: 80px;
+      line-height: 80px;
+      color: #7c888e;
+      font-size: 20px;
+      background:#eaeaea;
+    }
+    .row span{
+      width: 20%;
+      height: 100%;
+      float: left;
+      text-align: center;
+    }
+    
+  </style>
   <body>
-    <h1><%= title %></h1>
+    <%- include('bar',{username:username}) %>
+    <h1>文章管理系统</h1>
     <p>Welcome to <%= title %></p>
+    <div class="list">
+      <% data.list.map(function(item,index){ %>
+        <div class="row">
+          <span><%- index+1 %></span>
+          <span><%- item.username %></span>
+          <span><a href="/detail?id=<%= item.id %>"><%- item.title %></a></span>
+          <span><%- item.time %></span>
+          <span>
+            <a href="/wirte?id=<%=item.id%>&page=<%=data.curPage%>">编辑</a>
+            <a href="/article/delete?id=<%=item.id%>&page=<%=data.curPage%>">删除</a>
+          </span>
+        </div>
+      <% }) %>
+        <div class="pages">
+          <% for(let i = 1; i<=data.total;i++){ %>
+            <a href="/?page=<%= i %>"><%= i %></a>
+          <% } %>
+        </div>
+    </div>
   </body>
 </html>

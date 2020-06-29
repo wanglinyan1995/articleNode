@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>文章详情页</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+    html,body{
+      height: 100%;
+    }
+    .detail{
+        position: relative;
+        top:10%;
+        left:50%;
+        transform: translate(-50%,-10%);
+        width: 800px;
+        height: 1200px;
+        overflow-Y: scroll;
+    }
+    .title,.time{
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+    }
+    .title{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .content{
+        color: gray;
+        font-size: 24px;
+    }
+  </style>
+  <body>
+    <h1>文章管理系统</h1>
+    <p>Welcome to </p>
+    <div class="detail">
+        <div class="title"><%= item.title %></div>
+        <div class="time"><%= item.time %> : <%= item.username %></div>
+        <div class="content"><%- item.content %></div>
+        
+    </div>
+  </body>
+</html>
